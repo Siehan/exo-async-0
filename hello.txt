@@ -1,0 +1,5 @@
+correctMe.js
+
+Ce programme asynchrone ne fonctionne pas.
+Ajouter le code nécessaire pour faire fonctionner ce programme.
+const fsPromises = require('fs/promises')
