@@ -29,7 +29,7 @@ const myWget = async () => {
   try {
     const response = await axios.get("https://github.com/axios/axios");
     await fsPromises.writeFile("index.html", response.data); // response.data est une string qui est la page html
-    const stats = await fsPromises.stat("index.html", response.header);
+    const stats = await fsPromises.stat("index.html", response.headers);
     console.log(stats);
   } catch (e) {
     console.log(e.message);
@@ -38,25 +38,21 @@ const myWget = async () => {
 
 myWget();
 
-/* OUPPUT :
-Stats {
-  dev: 16777221,
-  mode: 33188,
-  nlink: 1,
-  uid: 501,
-  gid: 20,
-  rdev: 0,
-  blksize: 4096,
-  ino: 44290341,
-  size: 351923,
-  blocks: 688,
-  atimeMs: 1617979319341.4065,
-  mtimeMs: 1617980164609.846,
-  ctimeMs: 1617980164609.846,
-  birthtimeMs: 1617979070716.7712,
-  atime: 2021-04-09T14:41:59.341Z,
-  mtime: 2021-04-09T14:56:04.610Z,
-  ctime: 2021-04-09T14:56:04.610Z,
-  birthtime: 2021-04-09T14:37:50.717Z
-
-*/
+axios.get("/user/12345").catch(function (error) {
+  if (error.response) {
+    // The request was made and the server responded with a status code
+    // that falls out of the range of 2xx
+    console.log(error.response.data);
+    console.log(error.response.status);
+    console.log(error.response.headers);
+  } else if (error.request) {
+    // The request was made but no response was received
+    // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+    // http.ClientRequest in node.js
+    console.log(error.request);
+  } else {
+    // Something happened in setting up the request that triggered an Error
+    console.log("Error", error.message);
+  }
+  console.log(error.config);
+});
