@@ -39,6 +39,7 @@ const myWget = async () => {
 myWget();
 
 axios.get("/user/12345").catch(function (error) {
+  ///user/12345
   if (error.response) {
     // The request was made and the server responded with a status code
     // that falls out of the range of 2xx
@@ -59,18 +60,7 @@ axios.get("/user/12345").catch(function (error) {
 
 /*
 ➜  exo-async-0 git:(main) ✗ node my-wget.js
---------------------------
-OUPPUT AVEC axios.get("/user/12345").catch(function (error):
 
-Stats {
-  dev: 16777221,
-  mode: 33188,
-  nlink: 1,
-  uid: 501,
-  gid: 20,
-  rdev: 0,
-
---------------------------
 
 OUPPUT SANS axios.get("/user/12345").catch(function (error):
 
@@ -93,5 +83,18 @@ Stats {
   mtime: 2021-04-09T14:56:04.610Z,
   ctime: 2021-04-09T14:56:04.610Z,
   birthtime: 2021-04-09T14:37:50.717Z
+
+--------------------------
+OUPPUT AVEC axios.get("/user/12345").catch(function (error):
+
+Stats {
+  dev: 16777221,
+  mode: 33188,
+  nlink: 1,
+  uid: 501,
+  gid: 20,
+  rdev: 0,
+
+--------------------------
 
 */
