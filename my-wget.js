@@ -56,3 +56,42 @@ axios.get("/user/12345").catch(function (error) {
   }
   console.log(error.config);
 });
+
+/*
+➜  exo-async-0 git:(main) ✗ node my-wget.js
+--------------------------
+OUPPUT AVEC axios.get("/user/12345").catch(function (error):
+
+Stats {
+  dev: 16777221,
+  mode: 33188,
+  nlink: 1,
+  uid: 501,
+  gid: 20,
+  rdev: 0,
+
+--------------------------
+
+OUPPUT SANS axios.get("/user/12345").catch(function (error):
+
+Stats {
+  dev: 16777221,
+  mode: 33188,
+  nlink: 1,
+  uid: 501,
+  gid: 20,
+  rdev: 0,
+  blksize: 4096,
+  ino: 44290341,
+  size: 351923,
+  blocks: 688,
+  atimeMs: 1617979319341.4065,
+  mtimeMs: 1617980164609.846,
+  ctimeMs: 1617980164609.846,
+  birthtimeMs: 1617979070716.7712,
+  atime: 2021-04-09T14:41:59.341Z,
+  mtime: 2021-04-09T14:56:04.610Z,
+  ctime: 2021-04-09T14:56:04.610Z,
+  birthtime: 2021-04-09T14:37:50.717Z
+
+*/
